@@ -1,15 +1,25 @@
 # pip install pywin32
-''' If PyCharm still highlights win32serviceutil, win32service or win32event with error, just restart PyCharm '''
+''' If PyCharm highlights win32serviceutil, win32service or win32event with error after pywin32 install, just restart PyCharm '''
 
-# pip install pyinstaller pyinstaller --onefile --hidden-import=win32timezone --clean PythonWindowsService.py
+# pip install pyinstaller
+
+'''Compile your code into a executable (this will create a \dist folder in you project folder with a PythonWindowsService.exe)'''
+# pyinstaller --onefile --hidden-import=win32timezone --clean PythonWindowsService.py
 
 '''Open a new command line for the code bellow'''
 # sc create "Python Windows Service" binPath="Z:\PythonWindowsService\dist\PythonWindowsService.exe"
 
+'''To change the description of you service'''
 # sc description "Python Windows Service" "Example Python Service"
+
+'''To start the Windows Service'''
 # sc start "Python Windows Service"
+
+'''To stop the Windows Service'''
+# sc stop "Python Windows Service"
+
+'''To delete the Windows Service'''
 # sc delete "Python Windows Service"
-''' "sc delete" uninstalls the service'''
 
 import os
 import sys
